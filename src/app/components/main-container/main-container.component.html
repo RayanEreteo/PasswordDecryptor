@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="functionality-container">
+    <h1 class="cat-title">Encrypteur</h1>
+    <form>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Entrer un mot de passe...." />
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Sortie du hash...." disabled>
+      </mat-form-field>
+      <br>
+      <button type="submit" mat-raised-button (click)="handleSubmit($event)">
+        Encrypter
+      </button>
+    </form>
+  </div>
+  
+  <div class="functionality-container">
+    <h1 class="cat-title">Vérificateur</h1>
+    <form>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Entrer un mot de passe...."/>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Hash a vérifier...."/>
+      </mat-form-field>
+      <br>
+      <button type="submit" mat-raised-button (click)="handleSubmit($event)">
+        Vérifier
+      </button>
+    </form>
+  </div>
+</div>

@@ -5,4 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './main-container.component.html',
   styleUrls: ['./main-container.component.css'],
 })
-export class MainContainerComponent {}
+export class MainContainerComponent {
+  handleSubmit(e: Event): void {
+    e.preventDefault()
+    console.log("Envoyé")
+  }
+}
