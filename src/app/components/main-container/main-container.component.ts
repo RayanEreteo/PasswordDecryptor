@@ -12,12 +12,14 @@ export class MainContainerComponent {
   verifyResponse: any;
   hashToVerify: string;
   plainPassVerify: string;
+
+  serverLoading: boolean = false;
   
   constructor() {}
 
   encrypt(e: Event): void {
     e.preventDefault();
-
+    this.serverLoading = true;
     fetch('http://127.0.0.1:8000/encrypt', {
       method: 'POST',
       headers: {
@@ -29,6 +31,7 @@ export class MainContainerComponent {
     })
       .then((response) => response.json())
       .then((data) => {
+        this.serverLoading = false;
         if (data.success == false) {
           this.hashingResponse = data.message;
           console.log("test")
@@ -40,7 +43,7 @@ export class MainContainerComponent {
 
   verify(e: Event): void {
     e.preventDefault();
-
+    this.serverLoading = true;
     fetch('http://127.0.0.1:8000/verify', {
       method: 'POST',
       headers: {
@@ -53,6 +56,7 @@ export class MainContainerComponent {
     })
       .then((response) => response.json())
       .then((data) => {
+        this.serverLoading = false
         this.verifyResponse = data;
         console.log(data)
       });

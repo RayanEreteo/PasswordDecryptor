@@ -11,7 +11,7 @@
           <input type="text" matInput placeholder="Sortie du hash...." [disabled]="hashingResponse == ''" value={{hashingResponse}}>
         </mat-form-field>
         <br>
-        <button type="submit" mat-raised-button (click)="encrypt($event)">
+        <button type="submit" mat-raised-button (click)="encrypt($event)" [disabled]="serverLoading">
           Encrypter
         </button>
       </form>
@@ -27,7 +27,7 @@
           <input [(ngModel)]="hashToVerify" name="hashToVerify" type="text" matInput placeholder="Hash a vérifier."/>
         </mat-form-field>
         <br>
-        <button type="submit" mat-raised-button (click)="verify($event)">
+        <button type="submit" mat-raised-button (click)="verify($event)" [disabled]="serverLoading">
           Vérifier
         </button>
       </form>
