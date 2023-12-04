@@ -4,7 +4,8 @@
       <h1 class="cat-title">Encrypteur</h1>
       <form>
         <mat-form-field>
-          <input [(ngModel)]="plainPass" name="plainPass" type="password" matInput placeholder="Entrer un mot de passe...."/>
+          <mat-label>Mot de passe.</mat-label>
+          <input [(ngModel)]="plainPass" name="plainPass" type="password" matInput/>
         </mat-form-field>
         <br>
         <mat-form-field>
@@ -20,10 +21,12 @@
       <h1 class="cat-title">Vérificateur</h1>
       <form>
         <mat-form-field>
+          <mat-label>Mot de passe.</mat-label>
           <input [(ngModel)]="plainPassVerify" name="plainPassVerify" type="password" matInput placeholder="Entrer un mot de passe...."/>
         </mat-form-field>
         <br>
         <mat-form-field>
+          <mat-label>Hash à vérifier.</mat-label>
           <input [(ngModel)]="hashToVerify" name="hashToVerify" type="text" matInput placeholder="Hash a vérifier."/>
         </mat-form-field>
         <br>
