@@ -23,7 +23,12 @@ export class MainContainerComponent {
     })
       .then((response) => response.json())
       .then((data) => {
-        this.serverResponse = data.message;
+        if (data.success == false) {
+          this.serverResponse = data.message;
+          console.log("test")
+        }else{
+          this.serverResponse = data.hash;
+        }
       });
   }
 
