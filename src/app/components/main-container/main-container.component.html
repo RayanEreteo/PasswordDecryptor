@@ -1,34 +1,37 @@
 <div class="container">
-  <div class="functionality-container">
-    <h1 class="cat-title">Encrypteur</h1>
-    <form>
-      <mat-form-field>
-        <input [(ngModel)]="plainPass" name="plainPass" type="password" matInput placeholder="Entrer un mot de passe...."/>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Sortie du hash...." [disabled]="hashingResponse == ''" value={{hashingResponse}}>
-      </mat-form-field>
-      <br>
-      <button type="submit" mat-raised-button (click)="encrypt($event)">
-        Encrypter
-      </button>
-    </form>
+  <div class="functionality-wrapper">
+    <div class="functionality-container">
+      <h1 class="cat-title">Encrypteur</h1>
+      <form>
+        <mat-form-field>
+          <input [(ngModel)]="plainPass" name="plainPass" type="password" matInput placeholder="Entrer un mot de passe...."/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Sortie du hash...." [disabled]="hashingResponse == ''" value={{hashingResponse}}>
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button (click)="encrypt($event)">
+          Encrypter
+        </button>
+      </form>
+    </div>
+    <div class="functionality-container">
+      <h1 class="cat-title">Vérificateur</h1>
+      <form>
+        <mat-form-field>
+          <input [(ngModel)]="plainPassVerify" name="plainPassVerify" type="password" matInput placeholder="Entrer un mot de passe...."/>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input [(ngModel)]="hashToVerify" name="hashToVerify" type="text" matInput placeholder="Hash a vérifier."/>
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button (click)="verify($event)">
+          Vérifier
+        </button>
+      </form>
+    </div>
   </div>
-  <div class="functionality-container">
-    <h1 class="cat-title">Vérificateur</h1>
-    <form>
-      <mat-form-field>
-        <input [(ngModel)]="plainPassVerify" name="plainPassVerify" type="password" matInput placeholder="Entrer un mot de passe...."/>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <input [(ngModel)]="hashToVerify" name="hashToVerify" type="text" matInput placeholder="Hash a vérifier."/>
-      </mat-form-field>
-      <br>
-      <button type="submit" mat-raised-button (click)="verify($event)">
-        Vérifier
-      </button>
-    </form>
-  </div>
+  <h1 [ngClass]="{'verify-response-success': verifyResponse?.success, 'verify-response-failure': !verifyResponse?.success}">{{verifyResponse?.message}}</h1>
 </div>

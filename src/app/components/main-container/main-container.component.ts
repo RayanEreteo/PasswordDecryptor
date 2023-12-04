@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainContainerComponent {
   hashingResponse: string = '';
-  verifyResponse: string = '';
-
   plainPass: string;
 
+  verifyResponse: any;
   hashToVerify: string;
   plainPassVerify: string;
   
@@ -54,6 +53,7 @@ export class MainContainerComponent {
     })
       .then((response) => response.json())
       .then((data) => {
+        this.verifyResponse = data;
         console.log(data)
       });
   }

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
     max-width: 60rem;
     margin: 0 auto;
@@ -18,9 +18,27 @@
     justify-content: center;
 }
 
+.functionality-wrapper{
+    margin: 13px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .cat-title{
     color: white;
     font-size: 1.6rem;
+}
+
+.verify-response-success{
+    color: green;
+    margin-top: 6rem;
+}
+
+.verify-response-failure{
+    color: red;
+    margin-top: 6rem;
 }
 
 @media screen and (max-width: 692px) {
