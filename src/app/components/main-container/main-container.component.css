@@ -32,12 +32,12 @@
 }
 
 .verify-response-success{
-    color: green;
+    color: rgb(83, 117, 83);
     margin-top: 6rem;
 }
 
 .verify-response-failure{
-    color: red;
+    color: rgb(199, 65, 65);
     margin-top: 6rem;
 }
 
