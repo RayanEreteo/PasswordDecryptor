@@ -6,8 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-container.component.css'],
 })
 export class MainContainerComponent {
-  serverResponse: string = '';
+  hashingResponse: string = '';
+  verifyResponse: string = '';
+
   plainPass: string;
+
+  hashToVerify: string;
+  plainPassVerify: string;
+  
+  constructor() {}
 
   encrypt(e: Event): void {
     e.preventDefault();
@@ -24,15 +31,30 @@ export class MainContainerComponent {
       .then((response) => response.json())
       .then((data) => {
         if (data.success == false) {
-          this.serverResponse = data.message;
+          this.hashingResponse = data.message;
           console.log("test")
         }else{
-          this.serverResponse = data.hash;
+          this.hashingResponse = data.hash;
         }
       });
   }
 
   verify(e: Event): void {
     e.preventDefault();
+
+    fetch('http://127.0.0.1:8000/verify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        plainPass: this.plainPassVerify,
+        hash: this.hashToVerify
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      });
   }
 }
