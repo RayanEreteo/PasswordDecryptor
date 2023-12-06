@@ -20,7 +20,7 @@ export class MainContainerComponent {
   encrypt(e: Event): void {
     e.preventDefault();
     this.serverLoading = true;
-    fetch('http://127.0.0.1:8000/encrypt', {
+    fetch('http://localhost:5000/encrypt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export class MainContainerComponent {
   verify(e: Event): void {
     e.preventDefault();
     this.serverLoading = true;
-    fetch('http://127.0.0.1:8000/verify', {
+    fetch('http://localhost:5000/verify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
