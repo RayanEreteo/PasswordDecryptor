@@ -20,7 +20,7 @@ export class MainContainerComponent {
   encrypt(e: Event): void {
     e.preventDefault();
     this.serverLoading = true;
-    fetch('http://localhost:5000/encrypt', {
+    fetch('https://bcrypt-encrypt-service.onrender.com/encrypt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export class MainContainerComponent {
   verify(e: Event): void {
     e.preventDefault();
     this.serverLoading = true;
-    fetch('http://localhost:5000/verify', {
+    fetch('https://bcrypt-encrypt-service.onrender.com/verify', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
